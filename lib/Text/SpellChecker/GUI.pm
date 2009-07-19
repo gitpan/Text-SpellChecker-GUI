@@ -7,15 +7,15 @@ use ZConf;
 
 =head1 NAME
 
-Text::SpellChecker::GUI - Implements a user interface to 
+Text::SpellChecker::GUI - Implements a user interface to Text::SpellChecker
 
 =head1 VERSION
 
-Version 0.0.0
+Version 0.0.1
 
 =cut
 
-our $VERSION = '0.0.0';
+our $VERSION = '0.0.1';
 
 =head1 SYNOPSIS
 
@@ -98,7 +98,32 @@ sub new {
 
 =head2 check
 
-This checks the specified  
+This checks the specified the specified text for spelling errors.
+
+Only one option is taken and that is the text to be checked.
+
+The returned value is a hash.
+
+=head3 returned hash
+
+=head4 text
+
+This is the the resulting text.
+
+=head4 cancel
+
+If this is defined and true, then the user canceled the check and any changes.
+
+    my %returned=$sg->check($text);
+    if($sg->{error}){
+        print "Error!\n";
+    }else{
+        if($returned{cancel}){
+            print "The check was canceled.";
+        }else{
+            $text=$returned{text};
+        }
+    }
 
 =cut
 

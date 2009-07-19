@@ -50,7 +50,7 @@ getopts('f:o:', \%opts);
 
 #
 if (!defined($opts{f})) {
-	warn('curses-textspellchecker: No file specified.');
+	warn('textspellchecker: No file specified.');
 	exit 255;
 }
 
@@ -61,7 +61,7 @@ if (open(READFH, $opts{f})){
 	close(READFH);
 	$text=join('', @textA);
 }else {
-	warn('curses-textspellchecker: Failed to open "'.$opts{f}.'"');
+	warn('textspellchecker: Failed to open "'.$opts{f}.'"');
 	exit 254;
 }
 
@@ -149,6 +149,12 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 any
 
 =head1 CHANGE LOG
+
+=head1 0.0.1/2009-07-19 18:15
+
+Fix some warn errors in 'bin/textspellchecker'.
+
+Fix description for 'Text::SpellChecker::GUI'.
 
 =head1 0.0.0/2009-07-15 13:55
 
